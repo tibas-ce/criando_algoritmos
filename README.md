@@ -12,3 +12,7 @@ Este algoritmo vai pedir o nome e a idade de uma pessoa e vai dizer se ela já p
 3 - Algoritmo: Analisador de Notas de Alunos (arquivo - calcular_media.rb)
 
 Este algoritmo vai coletar as notas de um aluno e, no final, vai dizer a média e se ele foi aprovado ou reprovado, com base nessas notas.
+
+4 - Algoritmo: Gerenciador de Alunos e Notas (arquivo - gerenciador_aluno_nota.rb)
+
+Este algoritmo simula um sistema simples para gerenciar alunos. Você vai criar a classe Aluno, adicionar vários alunos a uma lista e, no final, gerar um relatório com a situação de cada um.
