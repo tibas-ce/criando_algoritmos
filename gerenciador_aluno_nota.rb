@@ -74,6 +74,7 @@ alunos.push(aluno3)
 
 # array vazio para adicionar os alunos
 alunos = []
+# contador para controle do loop
 contador = 1
 
 # loop para recebimento dos dados
@@ -81,31 +82,28 @@ loop do
     puts "Dígite o nome do aluno:"
     nome = gets.chomp
     aluno = Aluno.new(nome)
-    alunos.push(aluno)
+    
     contador = 1 # reinicia o contador para um novo aluno
     loop do
-        if contador <= 4
-            puts "Dígite a nota #{contador} bismestre"
-            nota = gets.chomp.to_f
-            # o "aluno." significa que esta chamando o método do objeto aluno (class Aluno)
-            aluno.adicionar_nota(nota) 
-            contador += 1
-        else    
-            puts "Você deseja cadastrar outro aluno? (S - sim; n - para não)"
-            resposta = gets.chomp.upcase # .upcase recebe o dado em letra maiúscula
-            if resposta =="S" 
-                # retorna ao loop principal
-                puts "Retornando ao cadastro de alunos."
-                break
-            else
-                puts "--- RESULTADO FINAL ---\n"
-                alunos.each do |aluno|
-                aluno.resultado_final
-            end
-            exit # encerrar o loop
-        end
-        end
+        puts "Dígite a nota #{contador} bismestre"
+        nota = gets.chomp.to_f
+        # o "aluno." significa que esta chamando o método do objeto aluno (class Aluno)
+        aluno.adicionar_nota(nota) 
+        contador += 1
+        break if contador > 4 
+    end
+    alunos.push(aluno) # adicionado aluno ao array de alunos
+    puts "Você deseja cadastrar outro aluno? (S - sim; N - para não)"
+    resposta = gets.chomp.upcase # .upcase recebe o dado em letra maiúscula
+    if resposta != "S" 
+        # retorna ao loop principal
+        puts "Retornando ao cadastro de alunos."
+        break
     end
 end
 
-
+# saida com relatorio final
+puts "--- RESULTADO FINAL ---\n"
+alunos.each do |aluno|
+    aluno.resultado_final
+end
