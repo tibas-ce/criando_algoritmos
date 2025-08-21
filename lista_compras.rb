@@ -10,17 +10,22 @@ class CarrinhoCompras
 
   # método adiciona categoria e item
   def adiciona_item (categoria, item)
+    # o .key? verifica se a categoria exite na hash @itens_categoria
     if @itens_categoria.key?(categoria)
+      #adiciona o item a categoria que ja existe
       @itens_categoria[categoria].push(item)
     else
+      #cria nova categoria e adiciona o item
       @itens_categoria[categoria] = [item]      
     end
-
   end
 
-  def mostrar_lista 
+  # método para imprimir a lista de compras
+  def mostrar_lista
+    # primeiro loop percorre as categorias 
     @itens_categoria.each do |key, value|
       puts("#{key}")
+      # segundo loop percorre cada item dentro da categoria
       value.each do |item|
         puts(" - #{item}")
       end
@@ -30,31 +35,36 @@ end
 
 #novo_carrinho = {}
 carrinho = CarrinhoCompras.new
+
 # entrada de dados do usuário
 loop do
 
   # entrada da categoria
   puts("Dígite a categoria do produto:")
   categoria = gets.chomp
-  loop do 
+
+  loop do
+    # entrada de produtos 
     puts("Digite o nome do produto:")
     item = gets.chomp
     carrinho.adiciona_item(categoria, item)
     puts("Quer continuar adicionando itens a mesma categoria? s (sim) - n (não)")
     resposta = gets.chomp.downcase
+    # verifica se o usuário quer cadastrar mais itens na mesma categoria
     if resposta != "s"
       #retornando ao loop principal
-      puts("Retornando há categoria")
       break
     end
   end
+  
   puts("Quer cadastrar mais uma categoria? s (sim) - n (não)")
   resposta1 = gets.chomp.downcase
+  # verifica se o usuário quer cadastrar mais uma categoria
   if resposta1 != "s"
     #saindo do loop
     break
   end
 end
 
-
+# imprimindo lista
 carrinho.mostrar_lista
