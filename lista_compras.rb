@@ -1,22 +1,19 @@
 # O Algoritmo: Gerenciador de Lista de Compras
 
 # criando class carrinho de compras
-class Carrinho_compras
+class CarrinhoCompras
   attr_accessor :itens_categoria
   # método de inicialização
-  def initialize (itens_categoria)
+  def initialize 
     @itens_categoria = {}
   end
 
   # método adiciona categoria e item
   def adiciona_item (categoria, item)
     if @itens_categoria.key?(categoria)
-      novo_item = item 
-      @itens_categoria[categoria].push(novo_item)
+      @itens_categoria[categoria].push(item)
     else
-      nova_categoria = categoria
-      novo_item = item
-      @itens_categoria[categoria] = [novo_item]      
+      @itens_categoria[categoria] = [item]      
     end
 
   end
@@ -31,8 +28,8 @@ class Carrinho_compras
   end
 end
 
-novo_carrinho = {}
-carrinho = Carrinho_compras.new(novo_carrinho)
+#novo_carrinho = {}
+carrinho = CarrinhoCompras.new
 # entrada de dados do usuário
 loop do
 
