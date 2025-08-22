@@ -26,4 +26,27 @@ adiciona_contato(agenda, "tomy", 31133223)
 buscar_contatos(agenda, "tibas")
 buscar_contatos(agenda, "joao")
 
+# recebendo dados do usuário
+loop do
+    puts("Olá, bem vindo ao nosso gerenciador de contatos.\n O que você gostaria de fazer?\n Cadastrar um novo contato? Dígite c\n Buscar um contato? Dígite b\n para sair dígite s")
+    resposta = gets.chomp.downcase
+    if resposta == "c"
+        puts("Dígite o nome do contato")
+        nome = gets.chomp
+        puts("Dígite o telefone de #{nome}")
+        telefone = gets.chomp
+        adiciona_contato(agenda, nome, telefone)
+        
+    elsif resposta == "b"
+        puts("Dígite o nome do contato que você quer buscar")
+        nome_buscar = gets.chomp
+        buscar_contatos(agenda, nome_buscar)
+        
+    else
+        puts("Saindo...")
+        break
+    end
+    
+end
+
 puts(agenda)
