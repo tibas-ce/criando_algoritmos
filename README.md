@@ -28,3 +28,17 @@ O objetivo é criar um sistema que armazena itens de compras por categoria. E no
 7 - Algoritmo: Gerenciador de Contatos (arquivo - gerenciador_contatos.rb)
 
 Este programa vai permitir que você crie uma lista de contatos. Cada contato será um Hash que armazena o nome e o telefone. Você poderá adicionar contatos e depois buscar por um deles.
+
+8 - Algoritmo: Analisador de Vendas de E-commerce
+
+Imagine que você trabalha para um e-commerce. Você recebeu uma lista de vendas e precisa analisar os dados para responder algumas perguntas de negócio.
+
+Seu programa terá a tarefa de:
+
+    * Calcular o valor total de todas as vendas.
+
+    * Determinar qual foi a venda de maior valor.
+
+    * Calcular a média de valor das vendas.
+
+    * Contar quantas vendas superaram um valor específico (por exemplo, R$ 100,00).
