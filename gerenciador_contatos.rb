@@ -10,16 +10,13 @@ def adiciona_contato (lista, nome, telefone)
 end
 
 # criando método para buscar contato
-def buscar_contatos (lista, nome)
-    lista.each do |key, value|
-        if value == nome
-            puts(lista.nome)
-        else
-            puts("Nome não existe em contatos")
-            break
-        end
+def buscar_contatos (lista, nome_busca)
+    contato = lista.find { |c| c[:nome] == nome_busca }
+    if contato
+        puts("#{contato[:nome]} - #{contato[:telefone]}")
+    else
+        puts("Nome não existe em contatos")
     end
-
 end
 
 adiciona_contato(agenda, "tibas", 93220367)
