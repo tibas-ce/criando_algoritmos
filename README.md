@@ -21,6 +21,10 @@ Este algoritmo simula um sistema simples para gerenciar alunos. Você vai criar 
 
 Este algoritmo vai pedir o nome completo de uma pessoa e vai gerar um nome de usuário, garantindo que ele não tenha espaços e que a primeira letra de cada nome esteja em maiúscula.
 
-O Algoritmo: Gerenciador de Lista de Compras (arquivo - lista_compras.rb)
+6 - O Algoritmo: Gerenciador de Lista de Compras (arquivo - lista_compras.rb)
 
 O objetivo é criar um sistema que armazena itens de compras por categoria. E no final imrpimir a lista.
+
+7 - Algoritmo: Gerenciador de Contatos (arquivo - gerenciador_contatos.rb)
+
+Este programa vai permitir que você crie uma lista de contatos. Cada contato será um Hash que armazena o nome e o telefone. Você poderá adicionar contatos e depois buscar por um deles.
