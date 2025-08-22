@@ -19,12 +19,21 @@ def buscar_contatos (lista, nome_busca)
     end
 end
 
+# criando método de imprimir agenda
+def mostrar_agenda (lista)
+    lista.each do |contato|
+        puts("#{contato[:nome]} - #{contato[:telefone]}")
+    end
+end
+
 adiciona_contato(agenda, "tibas", 93220367)
 adiciona_contato(agenda, "maria", 93939393)
 adiciona_contato(agenda, "tomy", 31133223)
 
 buscar_contatos(agenda, "tibas")
 buscar_contatos(agenda, "joao")
+
+mostrar_agenda(agenda)
 
 # recebendo dados do usuário
 loop do
