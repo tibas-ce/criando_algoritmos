@@ -23,22 +23,33 @@ class Vendas
         # criando venda como um sibolo
         venda = {produto: produto, valor: valor}
         @vendas.push(venda)     
-        
+    end
+
+    # método calcular valor total de vendas
+    def calcular_vendas ()
+        soma = 0.0
+        @vendas.each do |venda|
+            soma += venda[:valor] 
+        end
+        soma
     end
 
     def mostrar_lista
-        # O método each pecorre cada elemento da agenda e imprime cada um
+        soma = calcular_vendas
+        # O método each pecorre cada elemento das vendas e imprime cada um
         @vendas.each do |venda|
             puts("#{venda[:produto]} - #{venda[:valor]}")
         end
+        puts("Valor total de vendas = #{soma}")
     end
-  
-    
 end
 
+# teste dos métodos
 vendas = Vendas.new()
 
 vendas.add_venda("Notebook", 2500.00)
 vendas.add_venda("Teclado", 250.00)
+
+#vendas.calcular_vendas()
 
 vendas.mostrar_lista
