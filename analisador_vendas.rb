@@ -2,11 +2,8 @@
 Algoritmo: Analisador de Vendas de E-commerce
 Seu programa terá a tarefa de:
    * Calcular o valor total de todas as vendas.
-
    * Determinar qual foi a venda de maior valor.
-
    * Calcular a média de valor das vendas.
-
    * Contar quantas vendas superaram um valor específico (por exemplo, R$ 100,00).
 =end
 
@@ -34,13 +31,26 @@ class Vendas
         soma
     end
 
+    # método encontrar maior venda
+    def maior_venda 
+        maior = @vendas.first
+        @vendas.each do |venda|
+            if maior[:valor] < venda[:valor]
+                maior = venda
+            end
+        end
+        maior
+    end
+
     def mostrar_lista
         soma = calcular_vendas
+        resultado_maior_venda = maior_venda
         # O método each pecorre cada elemento das vendas e imprime cada um
         @vendas.each do |venda|
             puts("#{venda[:produto]} - #{venda[:valor]}")
         end
         puts("Valor total de vendas = #{soma}")
+        puts("Maior venda foi #{resultado_maior_venda[:produto]} com valor de #{resultado_maior_venda[:valor]}")
     end
 end
 
@@ -49,7 +59,7 @@ vendas = Vendas.new()
 
 vendas.add_venda("Notebook", 2500.00)
 vendas.add_venda("Teclado", 250.00)
-
-#vendas.calcular_vendas()
+vendas.add_venda("Mouse", 150.00)
+vendas.add_venda("Monitor", 750.00)
 
 vendas.mostrar_lista
