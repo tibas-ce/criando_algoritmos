@@ -50,7 +50,7 @@ class Vendas
         # O .size é usado para obter o número de elementos dentro de um objeto que possui uma coleção, como uma string, array ou hash. Nesse caso o array @vendas
         media = soma / @vendas.size
         # O .round() serve para arredondar números, se você não passa nada, ele arredonda para o inteiro mais próximo. Se você passa um número dentro dos parênteses, ele arredonda para aquela quantidade de casas decimais. No nosso caso, estou dizendo que quero que ele arredonde esse número 2 casas depois da vírgula.
-        return media.round(2)
+        media.round(2)
     end
 
     # método contar vendas acima de um valor pre definido
@@ -90,8 +90,10 @@ class Vendas
 end
 
 # teste dos métodos
+# criando array
 vendas = Vendas.new()
 
+# populando com algumas vendas o array
 vendas.add_venda("Teclado", 250.00)
 vendas.add_venda("Mouse", 150.00)
 vendas.add_venda("Monitor", 750.00)
