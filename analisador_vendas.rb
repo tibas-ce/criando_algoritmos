@@ -52,10 +52,23 @@ class Vendas
         return media
     end
 
+    # método contar vendas acima de um valor pre definido
+    def contar_vendas
+        valor_limite = 200.00
+        contador = 0
+        @vendas.each do |venda|
+            if valor_limite < venda[:valor]
+                contador += 1
+            end
+        end
+        contador
+    end
+
     def mostrar_lista
         soma = calcular_vendas
         resultado_maior_venda = maior_venda
         media = calcular_media
+        vendas_acima = contar_vendas
         # O método each pecorre cada elemento das vendas e imprime cada um
         @vendas.each do |venda|
             puts("#{venda[:produto]} - #{venda[:valor]}")
@@ -63,15 +76,16 @@ class Vendas
         puts("Valor total de vendas = #{soma}")
         puts("Maior venda foi #{resultado_maior_venda[:produto]} com valor de #{resultado_maior_venda[:valor]}")
         puts("A média de vendas é #{media}")
+        puts("A quantidade de vendas acima de R$ 200,00 é #{vendas_acima}")
     end
 end
 
 # teste dos métodos
 vendas = Vendas.new()
 
-vendas.add_venda("Notebook", 2500.00)
 vendas.add_venda("Teclado", 250.00)
 vendas.add_venda("Mouse", 150.00)
 vendas.add_venda("Monitor", 750.00)
+vendas.add_venda("Notebook", 2500.00)
 
 vendas.mostrar_lista
