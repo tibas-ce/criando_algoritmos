@@ -49,29 +49,80 @@ class Vendas
         soma = calcular_vendas
         # O .size é usado para obter o número de elementos dentro de um objeto que possui uma coleção, como uma string, array ou hash. Nesse caso o array @vendas
         media = soma / @vendas.size
-        return media
+        # O .round() serve para arredondar números, se você não passa nada, ele arredonda para o inteiro mais próximo. Se você passa um número dentro dos parênteses, ele arredonda para aquela quantidade de casas decimais. No nosso caso, estou dizendo que quero que ele arredonde esse número 2 casas depois da vírgula.
+        media.round(2)
     end
 
-    def mostrar_lista
+    # método contar vendas acima de um valor pre definido
+    def contar_vendas
+        valor_limite = 200.00
+        contador = 0
+        @vendas.each do |venda|
+            if valor_limite < venda[:valor]
+                contador += 1
+            end
+        end
+        contador
+    end
+
+    def mostrar_lista (resposta)
+        # variáveis chamando os métodos
         soma = calcular_vendas
         resultado_maior_venda = maior_venda
         media = calcular_media
-        # O método each pecorre cada elemento das vendas e imprime cada um
-        @vendas.each do |venda|
-            puts("#{venda[:produto]} - #{venda[:valor]}")
+        vendas_acima = contar_vendas
+        # verificação da respota do usuário
+        if resposta == "v"
+            # O método each pecorre cada elemento das vendas e imprime cada um
+            @vendas.each do |venda|
+                puts("#{venda[:produto]} - #{venda[:valor]}")
+            end
+        elsif resposta == "t"  
+            puts("Valor total de vendas = #{soma}")
+        elsif resposta == "m"
+            puts("Maior venda foi #{resultado_maior_venda[:produto]} com valor de #{resultado_maior_venda[:valor]}")
+        elsif resposta == "e"    
+            puts("A média de vendas é #{media}")
+        elsif resposta == "a"
+            puts("A quantidade de vendas acima de R$ 200,00 é #{vendas_acima}")
         end
-        puts("Valor total de vendas = #{soma}")
-        puts("Maior venda foi #{resultado_maior_venda[:produto]} com valor de #{resultado_maior_venda[:valor]}")
-        puts("A média de vendas é #{media}")
     end
 end
 
 # teste dos métodos
+# criando array
 vendas = Vendas.new()
 
-vendas.add_venda("Notebook", 2500.00)
+# populando com algumas vendas o array
 vendas.add_venda("Teclado", 250.00)
 vendas.add_venda("Mouse", 150.00)
 vendas.add_venda("Monitor", 750.00)
+vendas.add_venda("Notebook", 2500.00)
 
-vendas.mostrar_lista
+#vendas.mostrar_lista
+
+# interações co  o usuário
+loop do
+    puts("Olá, bem vindo ao nosso analisador de vendas!\n O que você gostaria de fazer?\n Cadastrar uma nova venda dígite: c\n Ver lista de vendas dígite v\n Quer ver o valor total das vendas dígite t\n Ver maior venda dígite m\n Ver média de vendas dígite e\n Ver vendas acima de R$200,00 dígite a\n Dígite s para sair.")
+    resposta = gets.chomp.downcase
+    if resposta == "c"
+        puts("Dígite o nome do produto:")
+        produto = gets.chomp
+        puts("Dígite o valor do produto:")       
+        valor = gets.chomp.to_f
+        vendas.add_venda(produto, valor)
+    elsif resposta == "v"
+        vendas.mostrar_lista(resposta)
+    elsif resposta == "t"
+        vendas.mostrar_lista(resposta)
+    elsif resposta == "m"
+        vendas.mostrar_lista(resposta)
+    elsif resposta == "e"
+        vendas.mostrar_lista(resposta)
+    elsif resposta == "a"
+        vendas.mostrar_lista(resposta)
+    else
+        puts("Saindo")
+        break
+    end
+end
