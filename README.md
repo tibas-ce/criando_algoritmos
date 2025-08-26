@@ -1,6 +1,34 @@
 # criando_algoritmos
 Aprofundando conhecimentos em Ruby construindo algoritmos
 
+Jornada de Aprendizado em Ruby
+
+Este repositório documenta minha jornada de aprendizado em Ruby, desde os conceitos fundamentais até a implementação de programas orientados a objetos. Os algoritmos aqui presentes são o resultado de uma série de desafios práticos, cada um construído para consolidar um conjunto específico de habilidades de programação.
+
+Habilidades Desenvolvidas
+
+    Manipulação de Dados: Domínio de estruturas de dados essenciais como Array (listas ordenadas) e Hash (coleções de chave-valor), incluindo a manipulação de dados complexos como Array de Hashes.
+
+    Controle de Fluxo: Uso de loops (each, loop) e condicionais (if/elsif/else) para criar programas interativos e tomar decisões lógicas.
+
+    Manipulação de strings: Utilização de métodos como split, capitalize e join para transformar e formatar texto de forma eficiente.
+
+    Programação Orientada a Objetos (POO): Criação de classes (Aluno, CarrinhoCompras, Vendas, Veiculo) para encapsular dados e comportamentos, além do uso de herança (<) para construir sistemas modulares e reutilizáveis, evitando a repetição de código.
+
+Métodos e Conceitos Chave
+
+Ao longo dos desafios, explorei e apliquei métodos poderosos que são fundamentais em Ruby, como:
+
+    map: Para percorrer e transformar elementos de um array.
+
+    find: Para buscar elementos que correspondam a uma condição específica.
+
+    key?: Para verificar a existência de chaves em um hash.
+
+    super: A palavra-chave central da herança, usada para chamar métodos da classe-mãe.
+
+Este repositório é um registro da minha evolução como programador, mostrando a aplicação prática de cada novo conceito aprendido.
+
 1 - Gerador de Perfil Simples (arquivo - gerador_perfil.rb)
 
 Este algoritmo vai pedir o nome e o ano de nascimento de uma pessoa, e depois vai calcular e exibir a idade e um perfil personalizado. Ele usa os conceitos de entrada de dados, métodos, cálculo e saída de dados.
@@ -42,3 +70,19 @@ Seu programa terá a tarefa de:
     * Calcular a média de valor das vendas.
 
     * Contar quantas vendas superaram um valor específico (por exemplo, R$ 100,00).
+
+9 - Algoritmo: Sistema de Gerenciamento de Veículos
+
+Este projeto implementa um sistema simples de gerenciamento de veículos utilizando Programação Orientada a Objetos em Ruby.
+
+A classe Veiculo contém atributos comuns (marca, modelo e ano) e o método exibir_informacoes.
+
+As classes Carro, Moto e Caminhao herdam de Veiculo, adicionando atributos específicos (como número de portas ou eixos).
+
+O super é utilizado para reaproveitar a inicialização da classe mãe.
+
+São criados objetos de cada classe filha para demonstrar o funcionamento.
+
+10 - Algoritmo de busca linear
+
+Dada uma matriz, arr[] de n inteiros, e um elemento inteiro x, descubra se o elemento x está presente na matriz. Retorne o índice da primeira ocorrência de x no array ou -1 se não existir.
